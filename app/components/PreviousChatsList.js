@@ -1,62 +1,33 @@
+'use client'
 import React, { useState } from 'react';
 import Input from 'react';
 
-const PreviousChatsList = ({ previousChats, onChatSelect, onDeleteChat, onRenameChat }) => {
-  const [renameInput, setRenameInput] = useState('');
-
-  const handleRenameInputChange = (event) => {
-    setRenameInput(event.target.value);
-  };
-
-  const handleRenameChat = (chat) => {
-    onRenameChat(chat, renameInput);
-    setRenameInput('');
-  };
+const PreviousChatsList = ({}) => {
 
   return (
-    <aside className="bg-gray-200 p-4">
-      <h2 className="text-lg font-semibold mb-2">Previous Chats</h2>
-      <ul>
-        {previousChats.map((chat, index) => (
-          <li key={index} className="mb-4">
-            <div className="flex items-center">
-              <div className="flex-grow pr-4">
-                <div>{chat.text}</div>
-              </div>
-              <div className="flex items-center">
-                <input
-                  type="text"
-                  className="border border-gray-300 rounded p-1 mr-2"
-                  value={renameInput}
-                  onChange={handleRenameInputChange}
-                  placeholder="New name"
-                />
-                <button
-                  className="text-gray-500 hover:text-red-500 focus:outline-none mr-2"
-                  onClick={() => onDeleteChat(chat)}
-                >
-                  <svg
-                    className="h-4 w-4 fill-current"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      d="M14 6V18a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6h2v11h4V6h2zM6 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1H6z"
-                    />
-                  </svg>
-                </button>
-                <button
-                  className="text-blue-500 hover:text-blue-700 focus:outline-none"
-                  onClick={() => handleRenameChat(chat)}
-                >
-                  Rename
-                </button>
-              </div>
+    <div className="h-full w-60">
+      <div className="flex h-full min-h-0 flex-col">
+        <div className="flex h-full min-h-0 flex-col">
+          <div className="flex h-full min-h-0 flex-col transition-opacity opacity-100">
+            <div className="scrollbar-trigger relative h-full w-full flex-1 items-start border-white/20">
+              <nav className="flex h-full w-full flex-col p-2 gizmo:px-3 gizmo:pb-3.5 gizmo:pt-0" aria-label="Chat history">
+                <div className="mb-1 flex flex-row gap-2">
+                  <a className="flex px-3 min-h-[44px] py-1 items-center gap-3 dark:text-white cursor-pointer text-sm rounded-md border dark:border-white/20 gizmo:min-h-0 hover:bg-gray-500/10 h-11 gizmo:h-10 gizmo:rounded-lg gizmo:border-[rgba(0,0,0,0.1)] bg-white dark:bg-transparent flex-grow overflow-hidden">
+                    <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="icon-sm shrink-0" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span className="truncate">New Chat</span>
+                  </a>
+                  <span className="" data-state="closed">
+                  <a className="flex px-3 min-h-[44px] py-1 gap-3 dark:text-white cursor-pointer text-sm rounded-md border dark:border-white/20 gizmo:min-h-0 hover:bg-gray-500/10 h-11 gizmo:h-10 gizmo:rounded-lg gizmo:border-[rgba(0,0,0,0.1)] w-11 flex-shrink-0 items-center justify-center bg-white dark:bg-transparent">
+                  </a>
+                  </span>
+                </div>
+              </nav>
             </div>
-          </li>
-        ))}
-      </ul>
-    </aside>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
