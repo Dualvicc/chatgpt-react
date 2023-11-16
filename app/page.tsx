@@ -4,7 +4,7 @@ import PreviousChatsList from './components/PreviousChatsList';
 const Home = () => {
   return (
     <body className="antialiased">
-      <div className="relative z-0 flex h-full w-full overflow-hidden" >
+      <div className="relative z-0 flex h-full w-full overflow-hidden min-h-screen" >
         <aside className="dark flex-shrink-0 overflow-x-hidden bg-gray-900  w-64">
           <PreviousChatsList/>
         </aside>
